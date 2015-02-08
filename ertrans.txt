@@ -1,0 +1,14 @@
+# -*- coding: utf-8 -*-
+f1 = open('__ER__.txt', 'r')
+f2 = open('ER.txt', 'w')
+
+try:
+	while True:
+		line1 = f1.readline()
+		pos1 = line1.find("【")
+		pos2 = line1.find("00 来自")
+		line2 = line1[pos1:pos2] + "\n"
+		f2.writeline(line2)
+finally:
+	f1.close()
+	f2.close()
