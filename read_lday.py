@@ -2,7 +2,8 @@
 from struct import *
 import MySQLdb
 
-conn = MySQLdb.connect(host="localhost",port=3307,user="root",passwd="333333",db="market",charset="utf8",use_unicode=True )
+#conn = MySQLdb.connect(host="localhost",port=3307,user="root",passwd="333333",db="market",charset="utf8",use_unicode=True )
+conn = MySQLdb.connect(host="115.29.238.220",port=3306,user="root",passwd="do-it-well",db="market",charset="utf8",use_unicode=True )
 cur=conn.cursor()
 
 rows = cur.execute("""select exchange.exchange_code, exchange.location, stock.stock_code from market.exchange, market.stock 
