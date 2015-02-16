@@ -10,9 +10,7 @@ import traceback
 import smtplib
 
 def send_message(recipients, subject, body):
-    mailboxs = [{'smtp' : 'smtp.qq.com', 'port' : 587, 'user' : '831261@qq.com', 'pass' : 'miAujv8R', 'tls' : False, 'ssl' : False}, \
-    {'smtp' : 'mail.gmx.com', 'port' : 587, 'user' : 'wangzhen@gmx.com', 'pass' : 'miAujv8R', 'tls' : True, 'ssl' : False},  \
-    {'smtp' : 'my.inbox.com', 'port' : 465, 'user' : 'wangzhen@inbox.com', 'pass': 'Duv7irYd', 'tls' : False, 'ssl' : True}]
+    mailboxs = [{'smtp' : 'smtp.qq.com', 'port' : 587, 'user' : '831261@qq.com', 'pass' : 'Mu8LonZa', 'tls' : False, 'ssl' : False}]
     msg = MIMEText(body,'html','utf-8')
     msg['Subject'] = subject
     for mailbox in mailboxs:
@@ -65,14 +63,16 @@ for m in match:
 				txt = txt + rawTxt[i]
 			if rawTxt[i] == '>':
 				isText = True
-		txt = txt + "\nhttp://xueqiu.com/1557735636/" + m[0]
-		print m[0], txt
+		url = "http://xueqiu.com/1557735636/" + m[0]
+		print url
+		txt = txt + url
+		#print m[0], txt
 		f.write(txt)
 		f.close
 
-		recipients = ['831261@qq.com','20891206@qq.com']
+		recipients = ['831261@qq.com']
 		#没有发送过，发送内容到上述地址
-		title = '易碎品发新贴了 ' + m[0]
+		title = '易碎品发新贴了 ' +url
 		content = txt
 		if send_message(recipients, title, content) == True:
 			print 'send a messge to recipients' + title
