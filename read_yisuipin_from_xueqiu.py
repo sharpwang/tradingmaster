@@ -63,7 +63,7 @@ for m in match:
 				txt = txt + rawTxt[i]
 			if rawTxt[i] == '>':
 				isText = True
-		url = "http://xueqiu.com/1557735636/" + m[0]
+		url = "<a href=http://xueqiu.com/1557735636/" + m[0] + "> 详细... </a>"
 		print url
 		txt = txt + url
 		#print m[0], txt
@@ -72,7 +72,7 @@ for m in match:
 
 		recipients = ['831261@qq.com']
 		#没有发送过，发送内容到上述地址
-		title = '易碎品发新贴了 ' +url
+		title = '易碎品发新贴了 ' + m[0]
 		content = txt
 		if send_message(recipients, title, content) == True:
 			print 'send a messge to recipients' + title
